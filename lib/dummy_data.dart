@@ -64,7 +64,7 @@ const DUMMY_MEALS = [
       'c2',
     ],
     title: 'Spaghetti with Tomato Sauce',
-    affordability: Affordability.Affordable,
+    affordability: Affordability.Afforadable,
     complexity: Complexity.Simple,
     imageUrl:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
@@ -97,7 +97,7 @@ const DUMMY_MEALS = [
       'c2',
     ],
     title: 'Toast Hawaii',
-    affordability: Affordability.Affordable,
+    affordability: Affordability.Afforadable,
     complexity: Complexity.Simple,
     imageUrl:
         'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
@@ -229,7 +229,7 @@ const DUMMY_MEALS = [
       'c10',
     ],
     title: 'Delicious Orange Mousse',
-    affordability: Affordability.Affordable,
+    affordability: Affordability.Afforadable,
     complexity: Complexity.Hard,
     imageUrl:
         'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
@@ -264,7 +264,7 @@ const DUMMY_MEALS = [
       'c7',
     ],
     title: 'Pancakes',
-    affordability: Affordability.Affordable,
+    affordability: Affordability.Afforadable,
     complexity: Complexity.Simple,
     imageUrl:
         'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
@@ -328,7 +328,7 @@ const DUMMY_MEALS = [
       'c9',
     ],
     title: 'Chocolate Souffle',
-    affordability: Affordability.Affordable,
+    affordability: Affordability.Afforadable,
     complexity: Complexity.Hard,
     imageUrl:
         'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
