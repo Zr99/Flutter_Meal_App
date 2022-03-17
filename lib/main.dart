@@ -25,12 +25,12 @@ class _MyAppState extends State<MyApp> {
     'vegatarian': false,
   };
   List<Meal> _avaialableMeals = DUMMY_MEALS;
-  
+
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
       _filters = filterData;
       _avaialableMeals = DUMMY_MEALS.where((meal) {
-        if (_filters['gluten']! && meal.isGlutenFree) {
+        if (_filters['gluten'] as bool && meal.isGlutenFree) {
           return false;
         }
         if (_filters['lactose'] as bool && meal.isLactoseFree) {
