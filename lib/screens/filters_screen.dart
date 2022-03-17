@@ -22,11 +22,10 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   initState() {
-    
-    _glutenFree = widget.currentFilters['gluten'] ??true;
-    _lactoseFree = widget.currentFilters['lactose']??true;
-    _isVegan = widget.currentFilters['vegan']??true;
-    _isVegetarian = widget.currentFilters['vegetarian']??true;
+    _glutenFree = widget.currentFilters['gluten'] ?? false;
+    _lactoseFree = widget.currentFilters['lactose'] ?? false;
+    _isVegan = widget.currentFilters['vegan'] ?? false;
+    _isVegetarian = widget.currentFilters['vegetarian'] ?? false;
 
     super.initState();
   }
@@ -38,7 +37,7 @@ class _FilterScreenState extends State<FilterScreen> {
       value: currentValue,
       subtitle: Text(description),
       //onChanged: (value){updateValue(value)},
-      
+
       onChanged: (value) => updateValue(value),
     );
   }

@@ -4,6 +4,10 @@ import '../dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-detail';
+  final Function toggleFavorite;
+  final Function isFavorite;
+
+  MealDetailScreen(this.toggleFavorite, this.isFavorite);
 
   @override
   Widget build(BuildContext context) {
@@ -36,64 +40,68 @@ class MealDetailScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('${selectedMeal.title}'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 300,
-              width: double.infinity,
-              child: Image.network(
-                selectedMeal.imageUrl!,
-                fit: BoxFit.cover,
-              ),
-            ),
-            buildSectionTitle(context, 'Ingredients'),
-            buildContainer(
-              ListView.builder(
-                itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 10,
-                    ),
-                    child: Text(
-                      selectedMeal.ingredients![index],
-                    ),
-                  ),
-                ),
-                itemCount: selectedMeal.ingredients?.length,
-              ),
-            ),
-            buildSectionTitle(context, 'Steps'),
-            buildContainer(ListView.builder(
-              itemBuilder: (context, index) => Column(
-                children: [
-                  ListTile(
-                    leading: CircleAvatar(
-                      child: Text('${(index + 1)}'),
-                    ),
-                    title: Text(
-                      selectedMeal.steps![index],
-                    ),
-                  ),
-                  Divider()
-                ],
-              ),
-              itemCount: selectedMeal.steps?.length,
-            )),
-          ],
+        appBar: AppBar(
+          title: Text('${selectedMeal.title}'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.delete),
-        onPressed: () {
-          Navigator.of(context).pop(mealId);
-        },
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 300,
+                width: double.infinity,
+                child: Image.network(
+                  selectedMeal.imageUrl!,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              buildSectionTitle(context, 'Ingredients'),
+              buildContainer(
+                ListView.builder(
+                  itemBuilder: (ctx, index) => Card(
+                    color: Theme.of(context).accentColor,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
+                      child: Text(
+                        selectedMeal.ingredients![index],
+                      ),
+                    ),
+                  ),
+                  itemCount: selectedMeal.ingredients?.length,
+                ),
+              ),
+              buildSectionTitle(context, 'Steps'),
+              buildContainer(ListView.builder(
+                itemBuilder: (context, index) => Column(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        child: Text('${(index + 1)}'),
+                      ),
+                      title: Text(
+                        selectedMeal.steps![index],
+                      ),
+                    ),
+                    Divider()
+                  ],
+                ),
+                itemCount: selectedMeal.steps?.length,
+              )),
+            ],
+          ),
+        ),
+        //comment: Floating button display with delete function
+        // floatingActionButton: FloatingActionButton(
+        //   child: Icon(Icons.delete),
+        //   onPressed: () {
+        //     Navigator.of(context).pop(mealId);
+        //   },
+        // ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(isFavorite(mealId) ?Icons.star : Icons.star_border),
+          onPressed: () => toggleFavorite(mealId),
+        ));
   }
 }

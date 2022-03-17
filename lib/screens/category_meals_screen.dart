@@ -34,11 +34,11 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     super.didChangeDependencies();
   }
 
-  void _removeMeal(String mealID) {
-    setState(() {
-      displayedMeals!.removeWhere((meal) => meal.id == mealID);
-    });
-  }
+  // void _removeMeal(String mealID) {
+  //   setState(() {
+  //     displayedMeals!.removeWhere((meal) => meal.id == mealID);
+  //   });
+  // }
 
   // final String categoryId;
   @override
@@ -50,7 +50,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return MealItem(
-              removeItem: _removeMeal,
+              
               id: displayedMeals![index].id as String,
               title: displayedMeals![index].title as String,
               imageURL: displayedMeals![index].imageUrl as String,
